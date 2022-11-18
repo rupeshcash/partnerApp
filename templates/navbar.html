@@ -1,0 +1,30 @@
+{% load static %}
+<header class="header">
+    <div class="container container--narrow">
+      <a href="{%url 'profiles'%}" class="header__logo">
+        <img src="{ % static 'images/download.jpg' %}" alt=" After School Logo" />
+      </a>
+      <nav class="header__nav">
+        <input type="checkbox" id="responsive-menu" />
+        <label for="responsive-menu" class="toggle-menu">
+          <span>Menu</span>
+          <div class="toggle-menu__lines"></div>
+        </label>
+        <ul class="header__menu">
+          {% if request.user.is_authenticated %}
+           <li class="header__menuItem"><a href="" class = "btn btn--sub">Top Rankers</a></li>
+            <li class="header__menuItem"><a href="/courseList" class = "btn btn--sub">Course</a></li>
+            <li class="header__menuItem"><a href="/facultyList" class = "btn btn--sub">Faculty</a></li>
+            <li class="header__menuItem"><a href="" class = "btn btn--sub">Demo Video</a></li>
+            <li class="header__menuItem"><a href="" class = "btn btn--sub">Scholarship</a></li>
+            <li class = "header__menuItem"><a href = "{% url 'logout' %}" class = "btn btn--sub"> Logout </a></li>
+          {% else %}
+          <li class = "header__menuItem"> <a href = "{% url 'login' %}" class = "btn btn--sub"> Log in/SignUp </a> </li>
+          {% endif %}
+        </ul>
+      </nav>
+    </div>
+ </header>
+
+
+

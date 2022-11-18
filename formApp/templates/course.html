@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+{%load static %}
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Favicon -->
+  <link rel="shortcut icon" href="{% static 'images/download.jpg' %}" type="image/x-icon" />
+  <!-- Icon - IconMonster -->
+  <link rel="stylesheet" href="https://cdn.iconmonstr.com/1.3.0/css/iconmonstr-iconic-font.min.css" />
+  <!-- Mumble UI -->
+  <link rel="stylesheet" href="{% static 'uikit/styles/uikit.css' %}" />
+  <!-- Dev Search UI -->
+  <link rel="stylesheet" href="{% static 'style/app.css' %}" />
+
+  <title>AfterSchool - Connect with Students!</title>
+  <style>
+        #customers {
+          font-family: Arial, Helvetica, sans-serif;
+          border-collapse: collapse;
+          width: 80%;
+          margin-left: 10%;
+          margin-right: 10%;
+          margin-top: 5%;
+        }
+
+        #customers td, #customers th {
+          border: 1px solid #ddd;
+          padding: 8px;
+        }
+
+        #customers tr:nth-child(even){background-color: #f2f2f2;}
+
+        #customers tr:hover {background-color: #ddd;}
+
+        #customers th {
+          padding-top: 12px;
+          padding-bottom: 12px;
+          text-align: left;
+          background-color: #2d2d39;
+          color: white;
+        }
+</style>
+</head>
+<body>
+{%include 'navbar.html'%}
+<form method="post" class="form auth__form">
+  <table id="customers" class="input input--text">
+    {{course.as_table}}
+    {%csrf_token%}
+  </table>
+  </br>
+  <input type="submit" value="Submit" class="btn btn-success" style="margin-left: 10%;">
+</form>
+</body>
+</html>

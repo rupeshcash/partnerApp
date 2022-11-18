@@ -1,0 +1,1 @@
+web: gunicorn partnerApp.wsgi --log-file -
